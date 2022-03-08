@@ -13,11 +13,11 @@ header h1 {
   margin: 0;
 }
 
-/* .sticky {
+.sticky {
   position: fixed;
   top: 0;
   width: 100%;
-} */
+}
 
 .nav {
   border: 1px solid rgb(0, 0, 0);
@@ -27,7 +27,7 @@ header h1 {
   background-color: rgb(226, 237, 247);
   /* border: 1px solid rgb(0, 255, 89); */
   padding: 1em;
-  margin: 0;
+  margin: 3em 0;
 }
 #article-list ul {
   padding: 0;
@@ -45,6 +45,31 @@ header h1 {
   margin: 0.75em 0;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 2px 3px rgba(164, 164, 164, 0.503);
+}
+#article-card h2 {
+  margin: 0 0.75em 0.2em 0;
+}
+
+#articlecard-article-topic {
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+#articlecard-article-author {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+#articlecard-article-created {
+  margin-top: 0.1em;
+}
+
+#articlecard-article-comments {
+  margin-bottom: 0;
+}
+
+#articlecard-article-votes {
+  margin-top: 0.1em;
 }
 
 .article-text-left {
