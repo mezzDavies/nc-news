@@ -1,5 +1,4 @@
 function ArticleCard(props) {
-  //   console.log("articles in separate card", props);
   const { article } = props;
   const date = new Date(Date.parse(article.created_at));
 
