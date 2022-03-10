@@ -8,9 +8,12 @@
   padding: 0.85em 0em;
 }
 
-header h1 {
+#header h1 {
   color: white;
   margin: 0;
+}
+#header a {
+  text-decoration: none;
 }
 /* 
 .sticky {
@@ -22,6 +25,7 @@ header h1 {
 .nav a:link,
 .nav a:visited {
   color: white;
+  text-decoration: none;
 }
 .nav {
   display: flex;
@@ -40,10 +44,8 @@ ul.nav {
 }
 
 #article-list {
-  background-color: rgb(226, 237, 247);
   /* border: 1px solid rgb(0, 255, 89); */
   padding: 1em;
-  /* margin: 3em 0; */
 }
 #article-list ul {
   padding: 0;
@@ -100,7 +102,58 @@ ul.nav {
   align-items: flex-end;
   justify-content: flex-end;
 }
+.card-link {
+  color: inherit;
+  text-decoration: inherit;
+}
 
 #article-filter {
   padding: 0.5em;
+}
+
+#single-article {
+  /* border: 1px solid rgb(255, 0, 0); */
+  background-color: rgb(255, 255, 255);
+  margin: 1em;
+  padding: 1.255em;
+}
+
+#single-article header {
+  text-align: left;
+}
+
+#single-article h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+#articlepage-article-author {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+#articlepage-article-date {
+  margin-top: 0;
+  margin-bottom: 3em;
+  font-size: 0.95em;
+}
+
+#articlepage-article-vote {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  font-size: 0.95em;
+}
+
+#articlepage-article-comments {
+  margin-top: 3.5em;
+  margin-bottom: 0;
+  font-size: 0.95em;
+}
+
+#single-article section {
+  text-align: left;
+}
+
+#single-article footer {
+  text-align: right;
+  margin-top: 1.75em;
 }

@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
-import FilterArticles from "./ArticleFilter";
 
 function ArticleList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,22 +20,20 @@ function ArticleList() {
       })
       .catch((err) => {
         setisError(true);
-        console.log("error >>>", err);
       });
   }, [topic_slug]);
 
   if (isError)
     return (
       <div>
-        <h3>are you lost?</h3>
-        <Link to="/">back home</Link>
+        <h3>
+          are you lost? <Link to="/">click here to go back home</Link>
+        </h3>
       </div>
     );
   if (isLoading) return <h2>loading...</h2>;
   return (
     <main id="article-list">
-      {/* <FilterArticles /> */}
-
       <ul>
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
