@@ -12,6 +12,6 @@ export const fetchTopics = () => {
   return ncNewsApi.get("/topics");
 };
 
-export const fetchRelatedArticles = () => {
-  return ncNewsApi.get("/topics/:topic_slug");
+export const fetchArticle = (id) => {
+  return ncNewsApi.get(`/articles/${id}`);
 };
