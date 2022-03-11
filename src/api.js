@@ -19,3 +19,7 @@ export const fetchArticle = (id) => {
 export const patchArticle = (id, incVote) => {
   return ncNewsApi.patch(`/articles/${id}`, { inc_votes: incVote });
 };
+
+export const fetchArticleComments = (id) => {
+  return ncNewsApi.get(`/articles/${id}/comments`);
+};

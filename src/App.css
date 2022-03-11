@@ -144,8 +144,8 @@ ul.nav {
 }
 
 #articlepage-article-comments {
-  margin-top: 3.5em;
-  margin-bottom: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   font-size: 0.95em;
 }
 
@@ -160,13 +160,43 @@ ul.nav {
 
 .vote-adder {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin: 0.5em 0;
+  flex-direction: column;
+  margin-top: 3em;
 }
 .vote-adder p {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  margin-left: 0.5em;
+  margin: 0;
+}
+.vote-adder button {
+  margin: 0;
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
+  color: rgb(66, 95, 145);
+}
+
+#adder-error {
+  color: rgb(246, 69, 69);
+  font-size: 0.8em;
+  font-weight: bold;
+  padding-top: 0.5em;
+}
+
+#comment {
+  border-top: 1px solid grey;
+  padding-top: 1em 1.2em;
+
+  /* border-bottom: 1px solid grey; */
+}
+
+#comment-list {
+  padding-top: 1em;
+  text-align: left;
+}
+
+#comment-body {
+  padding-bottom: 0.8em;
+}
+
+#comment-votes {
+  text-align: right;
 }

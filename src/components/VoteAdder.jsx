@@ -17,26 +17,32 @@ function VoteAdder({ votes, id }) {
       });
     });
   };
-  if (error) return <p>Vote not registered, you may be offline.</p>;
+
   return (
     <div className="vote-adder">
-      <button
-        disabled={voteAmount > 0}
-        onClick={() => {
-          handleIncVote(1);
-        }}
-      >
-        ⬆︎
-      </button>
-      <button
-        disabled={voteAmount < 0}
-        onClick={() => {
-          handleIncVote(-1);
-        }}
-      >
-        ⬇︎
-      </button>
-      <p>votes {votes + voteAmount}</p>
+      <div>
+        <button
+          disabled={voteAmount > 0}
+          onClick={() => {
+            handleIncVote(1);
+          }}
+        >
+          ⬆︎
+        </button>
+        <p>votes: {votes + voteAmount}</p>
+        <button
+          disabled={voteAmount < 0}
+          onClick={() => {
+            handleIncVote(-1);
+          }}
+        >
+          ⬇︎
+        </button>
+      </div>
+
+      {error ? (
+        <p id="adder-error">Vote not registered, you may be offline.</p>
+      ) : null}
     </div>
   );
 }
