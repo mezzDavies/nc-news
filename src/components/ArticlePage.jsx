@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchArticle } from "../api";
 import VoteAdder from "./VoteAdder";
+import CommentsWrapper from "./CommentsWrapper";
 
 function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,11 +43,14 @@ function ArticlePage() {
       </header>
       <section className="main-section">{article.body}</section>
       <footer>
+        <VoteAdder id={article.article_id} votes={article.votes} />
         <p id="articlepage-article-comments">
           comments {article.comment_count}
         </p>
-        {/* <p id="articlepage-article-vote">votes {article.votes}</p> */}
-        <VoteAdder id={article.article_id} votes={article.votes} />
+        <CommentsWrapper
+          id={article.article_id}
+          // count={article.comment_count}
+        />
       </footer>
     </article>
   );
