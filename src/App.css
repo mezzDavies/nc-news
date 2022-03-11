@@ -157,3 +157,16 @@ ul.nav {
   text-align: right;
   margin-top: 1.75em;
 }
+
+.vote-adder {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0.5em 0;
+}
+.vote-adder p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+}

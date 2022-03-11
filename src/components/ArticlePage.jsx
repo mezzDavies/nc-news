@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { fetchArticle } from "../api";
+import VoteAdder from "./VoteAdder";
 
 function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +16,6 @@ function ArticlePage() {
     fetchArticle(article_id)
       .then(({ data }) => {
         setArticle(data.article);
-
         setIsLoading(false);
       })
       .catch((err) => {
@@ -45,7 +45,8 @@ function ArticlePage() {
         <p id="articlepage-article-comments">
           comments {article.comment_count}
         </p>
-        <p id="articlepage-article-vote">votes {article.votes}</p>
+        {/* <p id="articlepage-article-vote">votes {article.votes}</p> */}
+        <VoteAdder id={article.article_id} votes={article.votes} />
       </footer>
     </article>
   );
