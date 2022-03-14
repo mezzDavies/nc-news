@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchArticleComments } from "../api";
-// import VoteAdder from "./VoteAdder";
+import CommentAdder from "./CommentAdder";
 
 function CommentsWrapper({ id }) {
   const [showComms, setShowComms] = useState(false);
@@ -10,7 +10,6 @@ function CommentsWrapper({ id }) {
       setComments(data.comments);
     });
   }, [id]);
-  // ^^^ warning if no dependancy in array???
 
   const handleClick = () => {
     setShowComms((currentShow) => {
@@ -25,6 +24,8 @@ function CommentsWrapper({ id }) {
       </button>
       {showComms && (
         <>
+          <CommentAdder id={id} />
+
           <div id="comment-list">
             <h3>Comments</h3>
             {comments.map((comment) => {
@@ -35,7 +36,7 @@ function CommentsWrapper({ id }) {
                   </dt>
                   <dt id="comment-body">{comment.body}</dt>
                   <dt id="comment-votes">votes: {comment.votes}</dt>
-                  {/* <VoteAdder votes={comment.votes} /> */}
+                  <dt>{comment.created_at}</dt>
                 </dl>
               );
             })}

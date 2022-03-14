@@ -200,3 +200,7 @@ ul.nav {
 #comment-votes {
   text-align: right;
 }
+
+#comment-adder-form {
+  float: left;
+}
