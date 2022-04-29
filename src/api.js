@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const ncNewsApi = axios.create({
-  baseURL: "https://nc-news-example-seminar-3-1.herokuapp.com/api",
+  baseURL: "https://nc-news-mezz-davies.herokuapp.com/api",
 });
 
 export const fetchArticles = (topic) => {
@@ -16,10 +16,13 @@ export const fetchArticle = (id) => {
   return ncNewsApi.get(`/articles/${id}`);
 };
 
+export const fetchArticleComments = (id) => {
+  return ncNewsApi.get(`/articles/${id}/comments`);
+};
+
 export const patchArticle = (id, incVote) => {
   return ncNewsApi.patch(`/articles/${id}`, { inc_votes: incVote });
 };
-
-export const fetchArticleComments = (id) => {
-  return ncNewsApi.get(`/articles/${id}/comments`);
+export const addComment = (id, newComment) => {
+  return ncNewsApi.post(`/articles/${id}/comments`, newComment);
 };

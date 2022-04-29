@@ -10,6 +10,7 @@ function ArticlePage() {
   const [isError, setisError] = useState(false);
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
+  const [isNewComment, setIsNewComment] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,11 +19,12 @@ function ArticlePage() {
       .then(({ data }) => {
         setArticle(data.article);
         setIsLoading(false);
+        setIsNewComment(false);
       })
       .catch((err) => {
         setisError(true);
       });
-  }, [article_id]);
+  }, [article_id, isNewComment]);
 
   if (isError)
     return (
@@ -47,9 +49,11 @@ function ArticlePage() {
         <p id="articlepage-article-comments">
           comments {article.comment_count}
         </p>
+
         <CommentsWrapper
           id={article.article_id}
-          // count={article.comment_count}
+          setIsNewComment={setIsNewComment}
+          isNewComment={isNewComment}
         />
       </footer>
     </article>

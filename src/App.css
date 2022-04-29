@@ -15,12 +15,10 @@
 #header a {
   text-decoration: none;
 }
-/* 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-} */
+
+#header span {
+  color: white;
+}
 
 .nav a:link,
 .nav a:visited {
@@ -201,6 +199,20 @@ ul.nav {
   text-align: right;
 }
 
-#comment-adder-form {
-  float: left;
+.comment-adder-form {
+  /* width: 100%; */
+  /* max-width: 100px; */
+  border: 1px solid red;
+  /* display: flex; */
+  padding: 0.8em 0;
+}
+
+.header-img-avatar {
+  width: 30px;
+  height: 30px;
+  object-position: top;
+  vertical-align: middle;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 0.5em;
 }

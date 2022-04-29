@@ -1,3 +1,3 @@
 NorthCoders front end project.
 
-This is a front end application for https://nc-news-example-seminar-3-1.herokuapp.com/
+This is a front end application for https://nc-news-mezz-davies.herokuapp.com/api/
