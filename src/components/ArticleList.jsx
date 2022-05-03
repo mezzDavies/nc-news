@@ -32,7 +32,6 @@ function ArticleList() {
   const order = searchParams.get("order");
 
   useEffect(() => {
-    console.log("remounted");
     setIsLoading(true);
     setisError(false);
     fetchArticles(topic, sort_by, order)
@@ -87,7 +86,7 @@ function ArticleList() {
             handleSelectedOrder();
           }}
         >
-          order
+          ↕️
         </h3>
       </div>
       <main id="article-list">

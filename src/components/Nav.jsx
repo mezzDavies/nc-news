@@ -13,7 +13,7 @@ function Nav() {
   return (
     <ul className="nav">
       <li>
-        <Link to="/">all topics</Link>
+        <Link to="/">all articles</Link>
       </li>
 
       {topics.map((topic) => {

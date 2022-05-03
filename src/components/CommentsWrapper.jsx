@@ -13,7 +13,6 @@ export default function CommentsWrapper({
   useEffect(() => {
     fetchArticleComments(article_id).then(({ data: { comments } }) => {
       setComments(comments);
-      // setIsNewComment(false);
     });
     return () => {
       setIsNewComment(false);
@@ -27,6 +26,8 @@ export default function CommentsWrapper({
       <div id="comment-list">
         <h3>Comments</h3>
         {comments.map((comment) => {
+          const date = new Date(Date.parse(comment.created_at));
+
           return (
             <dl key={comment.comment_id} id="comment">
               <dt>
@@ -34,7 +35,7 @@ export default function CommentsWrapper({
               </dt>
               <dt id="comment-body">{comment.body}</dt>
               <dt id="comment-votes">votes: {comment.votes}</dt>
-              <dt>{comment.created_at}</dt>
+              <dt>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</dt>
               <CommentDeleter
                 author={comment.author}
                 comment_id={comment.comment_id}

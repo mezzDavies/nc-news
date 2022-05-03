@@ -12,6 +12,8 @@ function ArticlePage() {
   const [article, setArticle] = useState({});
   const [isNewComment, setIsNewComment] = useState(false);
 
+  const date = new Date(Date.parse(article.created_at));
+
   useEffect(() => {
     setIsLoading(true);
     setisError(false);
@@ -41,14 +43,14 @@ function ArticlePage() {
       <header>
         <h2>{article.title}</h2>
         <h3 id="articlepage-article-author"> By {article.author}</h3>
-        <p id="articlepage-article-date">At {article.created_at}</p>
+        <p id="articlepage-article-date">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p>
+        <p id="articlepage-article-comments">
+          {article.comment_count} comments
+        </p>
       </header>
       <section className="main-section">{article.body}</section>
       <footer>
         <VoteAdder id={article.article_id} votes={article.votes} />
-        <p id="articlepage-article-comments">
-          comments {article.comment_count}
-        </p>
 
         <CommentsWrapper
           article_id={article.article_id}

@@ -171,9 +171,16 @@ ul.nav {
 }
 
 .vote-adder {
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   margin-top: 3em;
+}
+.vote-adder-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .vote-adder p {
   margin: 0;
@@ -214,14 +221,27 @@ ul.nav {
 }
 
 .comment-adder-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: center;
   /* width: 100%; */
   /* max-width: 100px; */
   /* border: 1px solid red; */
   /* display: flex; */
   padding: 0.8em 0;
+}
+
+.comment-adder-form form {
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+}
+
+.comment-adder-form textarea {
+  font-family: inherit;
+  height: 150px;
+  width: 100%;
+  resize: none;
 }
 
 .articlesList-sortbys {

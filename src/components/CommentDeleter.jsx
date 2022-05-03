@@ -15,8 +15,6 @@ export default function CommentDeleter({
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleDelete = (comment_id) => {
-    console.log("handleDelete invoked");
-    console.log("id in handleDelete >>>", comment_id);
     setIsDisabled(true);
     deleteComment(comment_id)
       .then(() => {

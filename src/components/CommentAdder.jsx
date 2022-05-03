@@ -49,7 +49,7 @@ export default function CommentAdder({ setIsNewComment, article_id }) {
                   setBody(e.target.value);
                 }}
               ></textarea>
-              <button>Submit</button>
+              <button>Post Comment</button>
             </form>
           </div>
           {/* <button onClick={handleClick}>

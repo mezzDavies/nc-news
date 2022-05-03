@@ -20,23 +20,23 @@ function VoteAdder({ votes, id }) {
 
   return (
     <div className="vote-adder">
-      <div>
+      <div className="vote-adder-buttons">
         <button
           disabled={voteAmount > 0}
           onClick={() => {
             handleIncVote(1);
           }}
         >
-          ⬆︎
+          ˄
         </button>
-        <p>votes: {votes + voteAmount}</p>
+        <p>{votes + voteAmount}</p>
         <button
           disabled={voteAmount < 0}
           onClick={() => {
             handleIncVote(-1);
           }}
         >
-          ⬇︎
+          ˅
         </button>
       </div>
 
