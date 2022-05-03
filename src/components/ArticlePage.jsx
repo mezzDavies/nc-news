@@ -51,7 +51,7 @@ function ArticlePage() {
         </p>
 
         <CommentsWrapper
-          id={article.article_id}
+          article_id={article.article_id}
           setIsNewComment={setIsNewComment}
           isNewComment={isNewComment}
         />

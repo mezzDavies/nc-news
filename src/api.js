@@ -27,3 +27,8 @@ export const patchArticle = (id, incVote) => {
 export const addComment = (id, newComment) => {
   return ncNewsApi.post(`/articles/${id}/comments`, newComment);
 };
+
+export const deleteComment = (id) => {
+  console.log("id in api call >>>", id);
+  return ncNewsApi.delete(`/comments/${id}`);
+};
