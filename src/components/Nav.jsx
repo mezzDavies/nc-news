@@ -5,8 +5,8 @@ function Nav() {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    fetchTopics().then((res) => {
-      setTopics(res.data.topics);
+    fetchTopics().then(({ data: { topics } }) => {
+      setTopics(topics);
     });
   }, []);
 

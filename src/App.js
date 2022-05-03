@@ -21,7 +21,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<ArticleList />} />
-          <Route path="/articles/:topic_slug" element={<ArticleList />} />
+          <Route path="/articles/:topic" element={<ArticleList />} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
         </Routes>
       </div>

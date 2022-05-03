@@ -8,9 +8,12 @@ export default function CommentsWrapper({ id, setIsNewComment, isNewComment }) {
   useEffect(() => {
     fetchArticleComments(id).then(({ data: { comments } }) => {
       setComments(comments);
-      setIsNewComment(false);
+      // setIsNewComment(false);
     });
-  }, [id, isNewComment]);
+    return () => {
+      setIsNewComment(false);
+    };
+  }, [id, isNewComment, setIsNewComment]);
 
   return (
     <>

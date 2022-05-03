@@ -9,15 +9,15 @@ function Header() {
     <header id="header">
       <Link to="/">
         <h1>NC News</h1>
-        <span class>
-          <img
-            className="header-img-avatar"
-            src={loggedInUser.avatar_url}
-            alt={loggedInUser.username}
-          />
-          {loggedInUser.username}
-        </span>
       </Link>
+      <span>
+        <img
+          className="header-img-avatar"
+          src={loggedInUser.avatar_url}
+          alt={loggedInUser.username}
+        />
+        {loggedInUser.username}
+      </span>
     </header>
   );
 }

@@ -6,6 +6,7 @@ export default function CommentAdder({ setIsNewComment, id }) {
   const { loggedInUser } = useContext(UserContext);
   const { username } = loggedInUser;
   const [showComms, setShowComms] = useState(false);
+  const [isError, setisError] = useState(false);
 
   const [body, setBody] = useState("");
 
@@ -23,9 +24,16 @@ export default function CommentAdder({ setIsNewComment, id }) {
     setBody("");
 
     addComment(id, newComment).catch((err) => {
-      if (err) console.log("err in from addComment >>>", err);
+      if (err) setisError(true);
     });
   };
+
+  if (isError)
+    return (
+      <div>
+        <h3>Comment not posted.</h3>
+      </div>
+    );
 
   return (
     <>
