@@ -13,10 +13,8 @@ export default function CommentsWrapper({
   useEffect(() => {
     fetchArticleComments(article_id).then(({ data: { comments } }) => {
       setComments(comments);
-    });
-    return () => {
       setIsNewComment(false);
-    };
+    });
   }, [article_id, isNewComment, setIsNewComment]);
 
   return (
