@@ -2,8 +2,9 @@ import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import ArticleList from "./components/ArticleList";
-import { Route, Routes } from "react-router-dom";
 import ArticlePage from "./components/ArticlePage";
+import ErrorPage from "./components/ErrorPage";
+import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./contexts/UserContext";
 import { useState } from "react";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<ArticleList />} />
           <Route path="/articles/:topic" element={<ArticleList />} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </UserContext.Provider>
