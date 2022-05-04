@@ -4,7 +4,7 @@
 
 This is a front end application made as part of my time on the [Northcoders Bootcamp](https://northcoders.com).
 
-It is a website (in a style similar to reddit) built with React. A hosted version can be found [here]().
+It is a website (in a style similar to reddit) built with React. A hosted version can be found [here](https://nc-news-mezz-davies.netlify.app).
 
 Although there is no authentication you are "logged in" as a user and as such some functionality of the website works accordingly (you are only able to delete comments asociated with that user, for example). Please have a click around the website and add a comment to an article, vote on an article etc.
 
@@ -34,6 +34,8 @@ Finally start the app locally:
 ```bash
 npm start
 ```
+
+It should launch in your default browser.
 
 ## Minimum Requirements
 
