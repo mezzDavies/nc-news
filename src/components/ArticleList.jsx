@@ -1,12 +1,13 @@
-import { useParams, Link, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
+import ErrorPage from "./ErrorPage";
 
 function ArticleList() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setisError] = useState(false);
+  const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
   const { topic } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,25 +34,25 @@ function ArticleList() {
 
   useEffect(() => {
     setIsLoading(true);
-    setisError(false);
+    setError(null);
     fetchArticles(topic, sort_by, order)
       .then(({ data: { articles } }) => {
         setArticles(articles);
         setIsLoading(false);
       })
-      .catch((err) => {
-        setisError(true);
-      });
+      .catch(
+        ({
+          response: {
+            data: { msg },
+            status,
+          },
+        }) => {
+          setError({ status, msg });
+        }
+      );
   }, [topic, sort_by, order]);
 
-  if (isError)
-    return (
-      <div>
-        <h3>
-          are you lost? <Link to="/">click here to go back home</Link>
-        </h3>
-      </div>
-    );
+  if (error) return <ErrorPage error={error} />;
 
   if (isLoading) return <h2>loading...</h2>;
 
