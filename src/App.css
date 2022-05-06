@@ -3,7 +3,7 @@
 }
 
 #header {
-  background-color: rgb(66, 95, 145);
+  background-color: rgb(93, 162, 164);
   padding: 0.85em 0em;
 }
 
@@ -46,8 +46,8 @@ button {
   justify-content: space-around;
   margin: 0;
   list-style: none;
-  background-color: rgb(124, 135, 150);
-  border: 1px solid rgb(115, 135, 150);
+  background-color: black;
+  /* border: 1px solid rgb(115, 135, 150); */
   font-weight: bold;
 }
 ul.nav {
@@ -70,7 +70,7 @@ ul.nav {
   padding: 1em;
   margin: 0.75em 0;
   background-color: rgb(255, 255, 255);
-  box-shadow: 2px 2px 3px rgba(164, 164, 164, 0.503);
+  box-shadow: 2px 2px 3px 2px rgb(164 164 164 / 50%);
 }
 #article-card h2 {
   margin: 0 0.75em 0.2em 0;
