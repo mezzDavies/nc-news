@@ -3,6 +3,8 @@ import { fetchArticleComments } from "../api";
 import CommentAdder from "./CommentAdder";
 import CommentDeleter from "./CommentDeleter";
 
+import { HiOutlineThumbUp } from "react-icons/hi";
+
 export default function CommentsWrapper({
   article_id,
   setIsNewComment,
@@ -32,8 +34,10 @@ export default function CommentsWrapper({
                 <h3>By {comment.author}</h3>
               </dt>
               <dt id="comment-body">{comment.body}</dt>
-              <dt id="comment-votes">votes: {comment.votes}</dt>
-              <dt>{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</dt>
+              <dt id="comment-votes">
+                <HiOutlineThumbUp /> {comment.votes}
+              </dt>
+              <dt id="comment-date">{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</dt>
               <CommentDeleter
                 author={comment.author}
                 comment_id={comment.comment_id}

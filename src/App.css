@@ -24,6 +24,13 @@
   border-radius: 50%;
   margin-right: 0.5em;
 }
+button {
+  background: transparent;
+  border: none;
+  box-shadow: 4px 6px 8px 3px rgb(164 164 164 / 50%);
+  padding: 0.75em 1.8em;
+  border-radius: 5px;
+}
 
 #header span {
   color: white;
@@ -177,10 +184,12 @@ ul.nav {
 }
 .vote-adder button {
   margin: 0;
+  padding: 0.5em;
   font-size: 1.3em;
   background-color: transparent;
   border: none;
   color: rgb(0, 0, 0);
+  box-shadow: none;
 }
 
 #adder-error {
@@ -206,6 +215,10 @@ ul.nav {
 
 #comment-votes {
   text-align: right;
+}
+
+#comment-date {
+  padding-bottom: 2em;
 }
 
 .comment-adder-form {

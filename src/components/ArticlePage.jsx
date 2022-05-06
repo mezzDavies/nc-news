@@ -56,7 +56,6 @@ function ArticlePage() {
       <section className="main-section">{article.body}</section>
       <footer>
         <VoteAdder id={article.article_id} votes={article.votes} />
-
         <CommentsWrapper
           article_id={article.article_id}
           setIsNewComment={setIsNewComment}
