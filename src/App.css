@@ -3,11 +3,7 @@
 }
 
 #header {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: space-around; */
   background-color: rgb(66, 95, 145);
-  /* border: 1px solid red; */
   padding: 0.85em 0em;
 }
 
@@ -31,7 +27,6 @@
 
 #header span {
   color: white;
-  /* border: 1px solid red; */
 }
 
 .nav a:link,
@@ -46,8 +41,6 @@
   list-style: none;
   background-color: rgb(124, 135, 150);
   border: 1px solid rgb(115, 135, 150);
-  /* padding-top: 0.5em;
-  padding-bottom: 0.7em; */
   font-weight: bold;
 }
 ul.nav {
@@ -56,7 +49,6 @@ ul.nav {
 }
 
 #article-list {
-  /* border: 1px solid rgb(0, 255, 89); */
   padding: 1em;
 }
 #article-list ul {
@@ -105,7 +97,6 @@ ul.nav {
   flex-direction: column;
   align-items: flex-start;
   margin: 0;
-  /* justify-content: flex-start; */
 }
 
 .article-text-right {
@@ -124,7 +115,6 @@ ul.nav {
 }
 
 #single-article {
-  /* border: 1px solid rgb(255, 0, 0); */
   background-color: rgb(255, 255, 255);
   margin: 1em;
   padding: 1.255em;
@@ -171,7 +161,6 @@ ul.nav {
 }
 
 .vote-adder {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   margin-top: 3em;
@@ -179,18 +168,19 @@ ul.nav {
 .vote-adder-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .vote-adder p {
   margin: 0;
+  font-weight: bold;
 }
 .vote-adder button {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
   background-color: transparent;
   border: none;
-  color: rgb(66, 95, 145);
+  color: rgb(0, 0, 0);
 }
 
 #adder-error {
@@ -203,8 +193,6 @@ ul.nav {
 #comment {
   border-top: 1px solid grey;
   padding-top: 1em 1.2em;
-
-  /* border-bottom: 1px solid grey; */
 }
 
 #comment-list {
@@ -221,19 +209,11 @@ ul.nav {
 }
 
 .comment-adder-form {
-  /* display: flex;
-  flex-direction: row; */
   justify-content: center;
-  /* width: 100%; */
-  /* max-width: 100px; */
-  /* border: 1px solid red; */
-  /* display: flex; */
-  padding: 0.8em 0;
+  padding: 0.25em 0;
 }
 
 .comment-adder-form form {
-  /* display: flex;
-  flex-direction: column; */
   align-items: center;
 }
 
@@ -244,8 +224,32 @@ ul.nav {
   resize: none;
 }
 
+.articlesList-topic-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+#topic-label {
+  padding-left: 1 em;
+  font-weight: 200;
+  margin: 1em, 0;
+}
+
+#topic {
+  font-weight: 400;
+}
+
 .articlesList-sortbys {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.articlesList-sortbys li {
+  font-size: 25px;
 }

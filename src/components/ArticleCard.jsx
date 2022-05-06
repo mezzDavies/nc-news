@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HiOutlineChatAlt2, HiOutlineThumbUp } from "react-icons/hi";
 
 function ArticleCard(props) {
   const { article } = props;
@@ -15,9 +16,12 @@ function ArticleCard(props) {
         </div>
         <div className="article-text-right">
           <p id="articlecard-article-comments">
-            Comments:&nbsp;{article.comment_count}
+            <HiOutlineChatAlt2 />
+            &nbsp;{article.comment_count}
           </p>
-          <p id="articlecard-article-votes">Votes: {article.votes}</p>
+          <p id="articlecard-article-votes">
+            <HiOutlineThumbUp /> {article.votes}
+          </p>
         </div>
       </li>
     </Link>

@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 
+import { HiOutlineChatAlt2 } from "react-icons/hi";
+
 import { useEffect, useState } from "react";
 import { fetchArticle } from "../api";
 import VoteAdder from "./VoteAdder";
@@ -47,7 +49,8 @@ function ArticlePage() {
         <h3 id="articlepage-article-author"> By {article.author}</h3>
         <p id="articlepage-article-date">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p>
         <p id="articlepage-article-comments">
-          {article.comment_count} comments
+          <HiOutlineChatAlt2 /> &nbsp;
+          {article.comment_count}
         </p>
       </header>
       <section className="main-section">{article.body}</section>

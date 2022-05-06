@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { patchArticle } from "../api";
 
+import { HiOutlineThumbDown, HiOutlineThumbUp } from "react-icons/hi";
+
 function VoteAdder({ votes, id }) {
   const [voteAmount, setVoteAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -22,21 +24,23 @@ function VoteAdder({ votes, id }) {
     <div className="vote-adder">
       <div className="vote-adder-buttons">
         <button
+          style={{ cursor: "pointer" }}
           disabled={voteAmount > 0}
           onClick={() => {
             handleIncVote(1);
           }}
         >
-          ˄
+          <HiOutlineThumbUp />
         </button>
         <p>{votes + voteAmount}</p>
         <button
+          style={{ cursor: "pointer" }}
           disabled={voteAmount < 0}
           onClick={() => {
             handleIncVote(-1);
           }}
         >
-          ˅
+          <HiOutlineThumbDown />
         </button>
       </div>
 

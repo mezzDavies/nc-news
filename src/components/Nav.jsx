@@ -11,19 +11,21 @@ function Nav() {
   }, []);
 
   return (
-    <ul className="nav">
-      <li>
-        <Link to="/">all articles</Link>
-      </li>
+    <nav>
+      <ul className="nav">
+        <li>
+          <Link to="/">all articles</Link>
+        </li>
 
-      {topics.map((topic) => {
-        return (
-          <li key={topic.slug}>
-            <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
-          </li>
-        );
-      })}
-    </ul>
+        {topics.map((topic) => {
+          return (
+            <li key={topic.slug}>
+              <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 

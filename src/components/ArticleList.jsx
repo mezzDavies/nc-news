@@ -1,5 +1,9 @@
 import { useParams, useSearchParams } from "react-router-dom";
 
+import { HiOutlineChatAlt2, HiOutlineThumbUp } from "react-icons/hi";
+import { BsCalendar2Date } from "react-icons/bs";
+import { FaSort } from "react-icons/fa";
+
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
@@ -58,38 +62,46 @@ function ArticleList() {
 
   return (
     <>
-      <p>{topic ? topic : "all topics"}</p>
-      <div className="articlesList-sortbys">
-        <h3
+      <div className="articlesList-topic-display">
+        <p id="topic-label">topic//</p>
+        <p id="topic">{topic ? topic : "all"}</p>
+      </div>
+
+      <ul className="articlesList-sortbys">
+        <li
+          style={{ cursor: "pointer" }}
           onClick={() => {
             setSearchParams({ sort_by: "comment_count" });
           }}
         >
-          💬
-        </h3>
-        <h3
+          <HiOutlineChatAlt2 />
+        </li>
+        <li
+          style={{ cursor: "pointer" }}
           onClick={() => {
             setSearchParams({ sort_by: "votes" });
           }}
         >
-          ✅
-        </h3>
-        <h3
+          <HiOutlineThumbUp />
+        </li>
+        <li
+          style={{ cursor: "pointer" }}
           onClick={() => {
             setSearchParams({ sort_by: "created_at" });
           }}
         >
-          📆
-        </h3>
+          <BsCalendar2Date />
+        </li>
 
-        <h3
+        <li
+          style={{ cursor: "pointer" }}
           onClick={() => {
             handleSelectedOrder();
           }}
         >
-          ↕️
-        </h3>
-      </div>
+          <FaSort />
+        </li>
+      </ul>
       <main id="article-list">
         <ul>
           {articles.map((article) => {
