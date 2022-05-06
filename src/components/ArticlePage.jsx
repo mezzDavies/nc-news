@@ -45,6 +45,7 @@ function ArticlePage() {
   return (
     <article id="single-article">
       <header>
+        <p id="articlepage-article-topic">//{article.topic}</p>
         <h2>{article.title}</h2>
         <h3 id="articlepage-article-author"> By {article.author}</h3>
         <p id="articlepage-article-date">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p>

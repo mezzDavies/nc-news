@@ -136,6 +136,10 @@ ul.nav {
   margin-bottom: 0.5em;
 }
 
+#articlepage-article-topic {
+  color: rgb(93, 162, 164);
+}
+
 #articlepage-article-author {
   margin-top: 0;
   margin-bottom: 0.5em;
