@@ -265,6 +265,7 @@ ul.nav {
   align-items: center;
   list-style-type: none;
   padding-inline-start: 0;
+  margin: 0 1em;
 }
 
 .articlesList-sortbys button {
