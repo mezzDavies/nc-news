@@ -68,38 +68,52 @@ function ArticleList() {
       </div>
 
       <ul className="articlesList-sortbys">
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setSearchParams({ sort_by: "comment_count" });
-          }}
-        >
-          <HiOutlineChatAlt2 />
-        </li>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setSearchParams({ sort_by: "votes" });
-          }}
-        >
-          <HiOutlineThumbUp />
-        </li>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setSearchParams({ sort_by: "created_at" });
-          }}
-        >
-          <BsCalendar2Date />
+        <li>
+          <button
+            className="articlesList-sortbys-button"
+            aria-label="sort articles by comments"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setSearchParams({ sort_by: "comment_count" });
+            }}
+          >
+            <HiOutlineChatAlt2 />
+          </button>
         </li>
 
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            handleSelectedOrder();
-          }}
-        >
-          <FaSort />
+        <li>
+          <button
+            aria-label="sort articles by votes"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setSearchParams({ sort_by: "votes" });
+            }}
+          >
+            <HiOutlineThumbUp />
+          </button>
+        </li>
+        <li>
+          <button
+            aria-label="sort articles by date"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setSearchParams({ sort_by: "created_at" });
+            }}
+          >
+            <BsCalendar2Date />
+          </button>
+        </li>
+
+        <li>
+          <button
+            aria-label="sort articles ascending or descending"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              handleSelectedOrder();
+            }}
+          >
+            <FaSort />
+          </button>
         </li>
       </ul>
       <main id="article-list">

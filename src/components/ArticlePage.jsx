@@ -70,13 +70,3 @@ export default function ArticlePage() {
     </article>
   );
 }
-
-// is newCommentCount - false state declared in articlePage - set to true when adding a new comment from commentAdder handleSubmit - so it reloads AP
-
-// setIsNewCommentCount pass on props AP > CW > AC (and commentDeleter?)
-
-// isNewComment is false state declared in articleWrapper when adding a new comment from commentAdder handleSubmit - so it reloads CW
-
-// setIsNewCommentCount pass on props CW > AC (and commentDeleter?)
-
-// set both to false upon reload in AP or CW (if true)
