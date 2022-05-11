@@ -14,7 +14,6 @@ export default function ArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
 
-  // new state for reloading articlepagewhen new comment is posted, to get updated comment count:
   const [isNewCommentCount, setIsNewCommentCount] = useState(false);
 
   const date = new Date(Date.parse(article.created_at));

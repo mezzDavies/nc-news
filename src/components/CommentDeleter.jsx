@@ -6,8 +6,8 @@ import { deleteComment } from "../api";
 export default function CommentDeleter({
   author,
   comment_id,
-  setIsNewComment,
   setIsNewCommentCount,
+  setIsCommentsUpdated,
 }) {
   const {
     loggedInUser: { username },
@@ -21,7 +21,7 @@ export default function CommentDeleter({
       .then(() => {
         setIsDisabled(false);
         setIsNewCommentCount(true);
-        setIsNewComment(true);
+        setIsCommentsUpdated(true);
       })
       .catch((err) => {
         if (err) {

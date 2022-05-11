@@ -3,7 +3,7 @@ import { addComment } from "../api";
 import { UserContext } from "../contexts/UserContext";
 
 export default function CommentAdder({
-  setIsNewComment,
+  setIsCommentsUpdated,
   setIsNewCommentCount,
   article_id,
 }) {
@@ -29,7 +29,7 @@ export default function CommentAdder({
     addComment(article_id, newComment)
       .then(() => {
         setIsNewCommentCount(true);
-        setIsNewComment(true);
+        setIsCommentsUpdated(true);
       })
       .catch((err) => {
         if (err) setisError(true);
