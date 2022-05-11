@@ -7,6 +7,7 @@ export default function CommentDeleter({
   author,
   comment_id,
   setIsNewComment,
+  setIsNewCommentCount,
 }) {
   const {
     loggedInUser: { username },
@@ -19,11 +20,12 @@ export default function CommentDeleter({
     deleteComment(comment_id)
       .then(() => {
         setIsDisabled(false);
-        // alert("Comment deleted");
-        return setIsNewComment(true);
+        setIsNewCommentCount(true);
+        setIsNewComment(true);
       })
       .catch((err) => {
         if (err) {
+          console.log("err in commentDeleter", err);
           setIsDisabled(false);
           alert("Comment NOT deleted");
         }

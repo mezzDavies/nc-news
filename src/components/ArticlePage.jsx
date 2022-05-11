@@ -8,23 +8,25 @@ import VoteAdder from "./VoteAdder";
 import CommentsWrapper from "./CommentsWrapper";
 import ErrorPage from "./ErrorPage";
 
-function ArticlePage() {
+export default function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null); //
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
-  const [isNewComment, setIsNewComment] = useState(false);
+
+  // new state for reloading articlepagewhen new comment is posted, to get updated comment count:
+  const [isNewCommentCount, setIsNewCommentCount] = useState(false);
 
   const date = new Date(Date.parse(article.created_at));
 
   useEffect(() => {
     setIsLoading(true);
-    setError(null); //
+    setError(null);
     fetchArticle(article_id)
       .then(({ data }) => {
         setArticle(data.article);
         setIsLoading(false);
-        setIsNewComment(false);
+        if (isNewCommentCount) setIsNewCommentCount(false);
       })
       .catch(
         ({
@@ -37,7 +39,7 @@ function ArticlePage() {
           setIsLoading(false);
         }
       );
-  }, [article_id, isNewComment]);
+  }, [article_id, isNewCommentCount]);
 
   if (error) return <ErrorPage error={error} />; //
   if (isLoading) return <h2>loading...</h2>;
@@ -58,13 +60,20 @@ function ArticlePage() {
       <footer>
         <VoteAdder id={article.article_id} votes={article.votes} />
         <CommentsWrapper
+          setIsNewCommentCount={setIsNewCommentCount}
           article_id={article.article_id}
-          setIsNewComment={setIsNewComment}
-          isNewComment={isNewComment}
         />
       </footer>
     </article>
   );
 }
 
-export default ArticlePage;
+// is newCommentCount - false state declared in articlePage - set to true when adding a new comment from commentAdder handleSubmit - so it reloads AP
+
+// setIsNewCommentCount pass on props AP > CW > AC (and commentDeleter?)
+
+// isNewComment is false state declared in articleWrapper when adding a new comment from commentAdder handleSubmit - so it reloads CW
+
+// setIsNewCommentCount pass on props CW > AC (and commentDeleter?)
+
+// set both to false upon reload in AP or CW (if true)

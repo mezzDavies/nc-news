@@ -2,7 +2,11 @@ import { useState, useContext } from "react";
 import { addComment } from "../api";
 import { UserContext } from "../contexts/UserContext";
 
-export default function CommentAdder({ setIsNewComment, article_id }) {
+export default function CommentAdder({
+  setIsNewComment,
+  setIsNewCommentCount,
+  article_id,
+}) {
   const { loggedInUser } = useContext(UserContext);
   const { username } = loggedInUser;
   const [showComms, setShowComms] = useState(false);
@@ -19,13 +23,17 @@ export default function CommentAdder({ setIsNewComment, article_id }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newComment = { body, username };
-    setIsNewComment(true);
 
     setBody("");
 
-    addComment(article_id, newComment).catch((err) => {
-      if (err) setisError(true);
-    });
+    addComment(article_id, newComment)
+      .then(() => {
+        setIsNewCommentCount(true);
+        setIsNewComment(true);
+      })
+      .catch((err) => {
+        if (err) setisError(true);
+      });
   };
 
   if (isError)

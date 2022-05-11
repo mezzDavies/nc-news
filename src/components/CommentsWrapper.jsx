@@ -5,23 +5,24 @@ import CommentDeleter from "./CommentDeleter";
 
 import { HiOutlineThumbUp } from "react-icons/hi";
 
-export default function CommentsWrapper({
-  article_id,
-  setIsNewComment,
-  isNewComment,
-}) {
+export default function CommentsWrapper({ article_id, setIsNewCommentCount }) {
   const [comments, setComments] = useState([]);
+  const [isNewComment, setIsNewComment] = useState(false);
 
   useEffect(() => {
     fetchArticleComments(article_id).then(({ data: { comments } }) => {
       setComments(comments);
-      setIsNewComment(false);
+      // if (isNewComment) setIsNewComment(false);
     });
-  }, [article_id, isNewComment, setIsNewComment]);
+  }, [article_id, isNewComment]);
 
   return (
     <>
-      <CommentAdder setIsNewComment={setIsNewComment} article_id={article_id} />
+      <CommentAdder
+        setIsNewComment={setIsNewComment}
+        setIsNewCommentCount={setIsNewCommentCount}
+        article_id={article_id}
+      />
 
       <div id="comment-list">
         <h3>Comments</h3>
@@ -43,6 +44,7 @@ export default function CommentsWrapper({
                 comment_id={comment.comment_id}
                 article_id={article_id}
                 setIsNewComment={setIsNewComment}
+                setIsNewCommentCount={setIsNewCommentCount}
               />
             </dl>
           );
