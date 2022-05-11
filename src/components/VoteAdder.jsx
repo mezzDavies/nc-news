@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { patchArticle } from "../api";
+import { UserContext } from "../contexts/UserContext";
 
 import { HiOutlineThumbDown, HiOutlineThumbUp } from "react-icons/hi";
 
-function VoteAdder({ votes, id }) {
+export default function VoteAdder({ votes, id, author }) {
   const [voteAmount, setVoteAmount] = useState(0);
   const [error, setError] = useState(false);
+  const {
+    loggedInUser: { username },
+  } = useContext(UserContext);
 
   const handleIncVote = (incVote) => {
     setError(false);
@@ -25,7 +29,7 @@ function VoteAdder({ votes, id }) {
       <div className="vote-adder-buttons">
         <button
           style={{ cursor: "pointer" }}
-          disabled={voteAmount > 0}
+          disabled={voteAmount > 0 || author === username}
           onClick={() => {
             handleIncVote(1);
           }}
@@ -35,7 +39,7 @@ function VoteAdder({ votes, id }) {
         <p>{votes + voteAmount}</p>
         <button
           style={{ cursor: "pointer" }}
-          disabled={voteAmount < 0}
+          disabled={voteAmount < 0 || author === username}
           onClick={() => {
             handleIncVote(-1);
           }}
@@ -50,10 +54,3 @@ function VoteAdder({ votes, id }) {
     </div>
   );
 }
-
-export default VoteAdder;
-// pass article id on props Y
-// make api helper function Y
-//  make handler make request to api Y
-// check response from server Y
-// make error retract the optimstic vote render

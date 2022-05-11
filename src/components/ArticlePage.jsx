@@ -57,7 +57,11 @@ export default function ArticlePage() {
       </header>
       <section className="main-section">{article.body}</section>
       <footer>
-        <VoteAdder id={article.article_id} votes={article.votes} />
+        <VoteAdder
+          id={article.article_id}
+          author={article.author}
+          votes={article.votes}
+        />
         <CommentsWrapper
           setIsNewCommentCount={setIsNewCommentCount}
           article_id={article.article_id}
