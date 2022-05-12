@@ -77,8 +77,8 @@ ul.nav {
 }
 
 #article-card {
-  display: grid;
-  grid-template-columns: 70% 30%;
+  display: flex;
+  flex-direction: column;
   border-radius: 1em;
   list-style: none;
   padding: 1em;
@@ -112,20 +112,31 @@ ul.nav {
   margin-top: 0.1em;
 }
 
-.article-text-left {
+.articlecard-text-main {
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 0;
 }
+.articlecard-lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.articlecard-text-lowerleft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-.article-text-right {
+.articlecard-text-lowerright {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
 }
+
 .card-link {
   color: inherit;
   text-decoration: inherit;

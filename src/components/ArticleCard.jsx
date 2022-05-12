@@ -5,7 +5,8 @@ import { timeDifference } from "../utils/dateStampConverter";
 
 function ArticleCard(props) {
   const { article } = props;
-  // const date = new Date(Date.parse(article.created_at));
+
+  const body = article.body;
 
   const currentTime = Date.now();
   const articlePostedTime = Date.parse(article.created_at);
@@ -14,21 +15,26 @@ function ArticleCard(props) {
   return (
     <Link className="card-link" to={`/article/${article.article_id}`}>
       <li id="article-card">
-        <div className="article-text-left">
+        <div className="articlecard-text-main">
           <h2>{article.title}</h2>
-          <p id="articlecard-article-topic">{article.topic}</p>
-          <p id="articlecard-article-author">By {article.author}</p>
-          {/* <p id="articlecard-article-created">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p> */}
-          <p id="articlecard-article-created">{`${articlePosted}`}</p>
+          <p id="articlecard-article-topic">//{article.topic}</p>
+          <p>{body.slice(0, 75)}...</p>
         </div>
-        <div className="article-text-right">
-          <p id="articlecard-article-comments">
-            <HiOutlineChatAlt2 />
-            &nbsp;{article.comment_count}
-          </p>
-          <p id="articlecard-article-votes">
-            <HiOutlineThumbUp /> {article.votes}
-          </p>
+        <div className="articlecard-lower">
+          <div className="articlecard-text-lowerleft">
+            <p id="articlecard-article-author">By {article.author}</p>
+            <p id="articlecard-article-created">{`${articlePosted}`}</p>
+          </div>
+
+          <div className="articlecard-text-lowerright">
+            <p id="articlecard-article-comments">
+              <HiOutlineChatAlt2 />
+              &nbsp;{article.comment_count}
+            </p>
+            <p id="articlecard-article-votes">
+              <HiOutlineThumbUp /> {article.votes}
+            </p>
+          </div>
         </div>
       </li>
     </Link>
