@@ -3,11 +3,14 @@ import { fetchArticleComments } from "../api";
 import CommentAdder from "./CommentAdder";
 import CommentDeleter from "./CommentDeleter";
 
+import { timeDifference } from "../utils/dateStampConverter";
+
 import { HiOutlineThumbUp } from "react-icons/hi";
 
 export default function CommentsWrapper({ article_id, setIsNewCommentCount }) {
   const [comments, setComments] = useState([]);
   const [isCommentsUpdated, setIsCommentsUpdated] = useState(false);
+  const currentTime = Date.now();
 
   useEffect(() => {
     fetchArticleComments(article_id).then(({ data: { comments } }) => {
@@ -30,18 +33,20 @@ export default function CommentsWrapper({ article_id, setIsNewCommentCount }) {
       <div id="comment-list">
         <h3>Comments</h3>
         {comments.map((comment) => {
-          const date = new Date(Date.parse(comment.created_at));
+          const commentPostedTime = Date.parse(comment.created_at);
+          const articlePosted = timeDifference(currentTime, commentPostedTime);
 
           return (
             <dl key={comment.comment_id} id="comment">
               <dt>
                 <h3>By {comment.author}</h3>
               </dt>
+              <dt id="comment-date">{`${articlePosted}`}</dt>
               <dt id="comment-body">{comment.body}</dt>
               <dt id="comment-votes">
                 <HiOutlineThumbUp /> {comment.votes}
               </dt>
-              <dt id="comment-date">{`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</dt>
+
               <CommentDeleter
                 author={comment.author}
                 comment_id={comment.comment_id}

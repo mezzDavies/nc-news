@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { HiOutlineChatAlt2, HiOutlineThumbUp } from "react-icons/hi";
 
+import { timeDifference } from "../utils/dateStampConverter";
+
 function ArticleCard(props) {
   const { article } = props;
-  const date = new Date(Date.parse(article.created_at));
+  // const date = new Date(Date.parse(article.created_at));
+
+  const currentTime = Date.now();
+  const articlePostedTime = Date.parse(article.created_at);
+  const articlePosted = timeDifference(currentTime, articlePostedTime);
 
   return (
     <Link className="card-link" to={`/article/${article.article_id}`}>
@@ -12,7 +18,8 @@ function ArticleCard(props) {
           <h2>{article.title}</h2>
           <p id="articlecard-article-topic">{article.topic}</p>
           <p id="articlecard-article-author">By {article.author}</p>
-          <p id="articlecard-article-created">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p>
+          {/* <p id="articlecard-article-created">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p> */}
+          <p id="articlecard-article-created">{`${articlePosted}`}</p>
         </div>
         <div className="article-text-right">
           <p id="articlecard-article-comments">

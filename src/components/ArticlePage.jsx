@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 
+import { timeDifference } from "../utils/dateStampConverter";
+
 import { HiOutlineChatAlt2 } from "react-icons/hi";
 
 import { useEffect, useState } from "react";
@@ -16,7 +18,9 @@ export default function ArticlePage() {
 
   const [isNewCommentCount, setIsNewCommentCount] = useState(false);
 
-  const date = new Date(Date.parse(article.created_at));
+  const currentTime = Date.now();
+  const articlePostedTime = Date.parse(article.created_at);
+  const articlePosted = timeDifference(currentTime, articlePostedTime);
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,7 +44,7 @@ export default function ArticlePage() {
       );
   }, [article_id, isNewCommentCount]);
 
-  if (error) return <ErrorPage error={error} />; //
+  if (error) return <ErrorPage error={error} />;
   if (isLoading) return <h2>loading...</h2>;
 
   return (
@@ -49,7 +53,7 @@ export default function ArticlePage() {
         <p id="articlepage-article-topic">//{article.topic}</p>
         <h2>{article.title}</h2>
         <h3 id="articlepage-article-author"> By {article.author}</h3>
-        <p id="articlepage-article-date">{`At: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}</p>
+        <p id="articlepage-article-date"> {`${articlePosted}`}</p>
         <p id="articlepage-article-comments">
           <HiOutlineChatAlt2 /> &nbsp;
           {article.comment_count}
