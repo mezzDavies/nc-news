@@ -30,7 +30,7 @@ export default function CommentsWrapper({ article_id, setIsNewCommentCount }) {
         article_id={article_id}
       />
 
-      <div id="comment-list">
+      <div className="comment-list">
         <h3>Comments</h3>
         {comments.map((comment) => {
           const commentPostedTime = Date.parse(comment.created_at);
@@ -39,7 +39,7 @@ export default function CommentsWrapper({ article_id, setIsNewCommentCount }) {
           return (
             <dl key={comment.comment_id} id="comment">
               <dt>
-                <h3>By {comment.author}</h3>
+                <h3 id="comment-author">By {comment.author}</h3>
               </dt>
               <dt id="comment-date">{`${articlePosted}`}</dt>
               <dt id="comment-body">{comment.body}</dt>
