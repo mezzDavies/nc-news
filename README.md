@@ -49,9 +49,9 @@ installed to run this app locally.
 
 ## Future Updates
 
-I consider this to be an MVP and further ammendments are forthcoming, including:
+Further ammendments are forthcoming, including:
 
-- Finessed styling (eg icons instead of emojis, general improvments to UI)
 - Pagination of articles and comments
-- The ability to post new articles and topics
-- The ability to delete articles
+- The ability for a user to vote on comments (not inc. their own)
+- The ability for a user to post new articles and topics
+- The ability for a user to delete articles
