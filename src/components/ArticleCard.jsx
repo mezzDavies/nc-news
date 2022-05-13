@@ -18,7 +18,7 @@ function ArticleCard(props) {
         <div className="articlecard-text-main">
           <h2>{article.title}</h2>
           <p id="articlecard-article-topic">//{article.topic}</p>
-          <p>{body.slice(0, 75)}...</p>
+          <p>{body.split(" ").slice(0, 12).join(" ")}...</p>
         </div>
         <div className="articlecard-lower">
           <div className="articlecard-text-lowerleft">
